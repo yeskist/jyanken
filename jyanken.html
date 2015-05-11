@@ -9,9 +9,27 @@
 <body>
 
 <script>
-document.write("<h1>ジャンケンゲーム</h1>");
-
+var hand = {1:"グー", 2:"チョキ", 3:"パー"};
+var result = ["あいこ", "負け", "勝ち"];
+ 
+function janken(num){
+    var hand1 = num;
+ 
+    var hand2 = Math.floor(Math.random()*3+1);
+ 
+    var judge = (hand1-hand2+3)%3;
+ 
+    document.getElementById("result").innerHTML = 
+    "<p>あなた：<b>"+hand[hand1]+"</b></p>" +
+    "<p>あいて：<b>"+hand[hand2] + "</b></p>" +
+    "<p><b>"+result[judge]+"</b>です!!</p>";
+}
 </script>
+<button type="button" onclick="janken(1);"><img src="" alt="グー"></button>
+<button type="button" onclick="janken(2);"><img src="" alt="チョキ"></button>
+<button type="button" onclick="janken(3);"><img src="" alt="パー"></button>
+
+<div id="result"></div>
 
 </body>
 </html>
